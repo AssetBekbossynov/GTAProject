@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/gta_v"
+            android:title="GTA V" />
+        <item
+            android:id="@+id/gta_iv_ballad"
+            android:title="GTA IV THE BALLAD OF GAY TONY" />
+        <item
+            android:id="@+id/gta_iv_damned"
+            android:title="GTA IV THE LOST AND DAMNED" />
+        <item
+            android:id="@+id/gta_iv"
+            android:title="GTA IV" />
+        <item
+            android:id="@+id/gta_san_andreas"
+            android:title="GTA SAN ANDREAS" />
+        <item
+            android:id="@+id/gta_vice_city"
+            android:title="GTA VICE CITY" />
+        <item
+            android:id="@+id/gta_iii"
+            android:title="GTA III" />
+        <item
+            android:id="@+id/gta_2"
+            android:title="GTA 2" />
+        <item
+            android:id="@+id/gta"
+            android:title="GTA" />
+    </group>
+
+</menu>

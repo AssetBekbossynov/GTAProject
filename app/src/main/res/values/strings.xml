@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GTAProject</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="gtav_pc_weapons">Все оружие:\n1-999-8665-87 (TOOLUP)\nВзрывные кулаки:\n1-999-4684-2637 (HOTHANDS)\nЗамедленное прицеливание:\n1-999-332-3393 (DEADEYE)\nЗажигательные патроны:\n1-999-462-363-4279 (INCENDIARY)\nВзрывающиеся патроны:\n1-999-444-439 (HIGHEX)</string>
+    <string name="gtav_pc_gameplay">Неуязвимость:\n1-999-724-654-5537 (PAINKILLER)\n\nЗдоровье и броня:\n1-999-887-853 (TURTLE)\nОпьянение:\n1-999-547-861 (LIQUOR)\nБыстрый бег:\n1-999-228-8463 (CATCHME)\nСуперпрыжок:\n1-999-467-8648 (HOPTOIT)\nБыстрое плавание:\n1-999-468-44557 (GOTGILLS)\nВосстанавливает способности:\n1-999-769-3787 (POWERUP)\nПонижение уровня розыска:\n1-999-5299-3787 (LAWYERUP)\nПoвышeниe ypoвня poзыcкa:\n1-999-3844-8483 (FUGITIVE)\nПадение с неба:\n1-999-759-3255 (SKYFALL)\nЛyннaя гpaвитaция:\n1-999-356-2837 (FLOATER)\nЗaмeдлeниe вpeмeни:\n1-999-756-966 (SLOWMO)\nИзменение погоды:\n1-999-625-348-7246 (MAKE IT RAIN)</string>
+    <string name="gtav_pc_vehicle">Sanchez:\n1-999-633-7623 (OFFROAD)\nBuzzard:\n1-999-289-9633 (BUZZOFF)\nМусоровоз:\n1-999-872-433 (TRASHED)\nComet:\n1-999-266-38 (COMET)\nЛимузин:\n1-999-846-39663 (VINEWOOD)\nRapid GT:\n1-999-727-4348 (RAPIDGT)\nPCJ-600:\n1-999-762-538 (ROCKET)\nВелосипед BMX:\n1-999-226-348 (BANDIT)\nStunt Plane:\n1-999-2276-78676 (BARNSTORM)\nПолучить парашют:\n1-999-759-3483 (SKYDIVE)</string>
+    <string name="gtav_instructions">Чтобы ввести чит-код откройте консоль нажав на клавишу тильда [~]. После ввода чит-кода необходимо нажать [Enter] Чтобы ввести чит-код по телефону, нужно достать телефон нажав клавишу [Вверх], перейти в контакты и нажать [пробел]</string>
+    <string name="gtav_warning">Bнимaниe! После активaции чит кoдoв oтключаются игpoвыe дocтижeния! Чтобы получать достижения вам нужно будет загрузить сохраненную игру.</string>
+
+</resources>
