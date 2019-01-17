@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingBottom="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Game Title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/gtav_ps_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/weapons"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:text="weapons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/weapons_content"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:el_expanded="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weapons">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/gtav_pc_weapons"/>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <Button
+            android:id="@+id/gameplay"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:text="gameplay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weapons_content"/>
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/gameplay_content"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:el_expanded="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameplay">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/gtav_pc_gameplay"/>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <Button
+            android:id="@+id/vehicle"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:text="Vehicle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameplay_content"/>
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/vehicle_content"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:el_expanded="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicle">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/gtav_pc_vehicle"/>
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

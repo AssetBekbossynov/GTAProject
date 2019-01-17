@@ -5,15 +5,17 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -22,9 +24,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     lateinit var pagerAdapter: FragmentStatePagerAdapter
 
+    lateinit var fragment: Fragment
+    lateinit var fragmentTransaction: FragmentTransaction
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713")
+
+        val adRequest = AdRequest.Builder().build()
+        adBanner.loadAd(adRequest)
+
+
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
@@ -33,59 +45,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         supportActionBar!!.title = "Some Title"
-
-        pagerAdapter = ContentAdapter(supportFragmentManager)
-        view_pager.adapter = pagerAdapter
-        tabs.setupWithViewPager(view_pager)
-
-        tabs.getTabAt(0)!!.text = "PC"
-        tabs.getTabAt(1)!!.text = "XBOX"
-        tabs.getTabAt(2)!!.text = "PLAYSTATION"
-        tabs.getTabAt(0)!!.icon = resources.getDrawable(R.drawable.pc)
-        tabs.getTabAt(1)!!.icon = resources.getDrawable(R.drawable.xbox)
-        tabs.getTabAt(2)!!.icon = resources.getDrawable(R.drawable.playstation)
-
-
-//        tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
-//            override fun onTabReselected(p0: TabLayout.Tab?) {
-//
-//            }
-//
-//            override fun onTabUnselected(p0: TabLayout.Tab?) {
-//            }
-//
-//            override fun onTabSelected(p0: TabLayout.Tab?) {
-//                when(p0!!.position){
-//                    0->view_pager.currentItem = 0
-//                    1->view_pager.currentItem = 1
-//                    2->view_pager.currentItem = 2
-//                }
-//            }
-//
-//        })
-
-        view_pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
-            override fun onPageScrollStateChanged(p0: Int) {
-                if (p0 != 2) {
-                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-                }
-            }
-
-            override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-            }
-
-            override fun onPageSelected(p0: Int) {
-                if (p0 == 0) {
-                    tabs.getTabAt(0)!!.select()
-                } else if (p0 == 1) {
-                    tabs.getTabAt(1)!!.select()
-                } else if (p0 == 2) {
-                    tabs.getTabAt(2)!!.select()
-                }
-            }
-
-        })
 
         nav_view.setNavigationItemSelectedListener(this)
     }
@@ -119,34 +78,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.gta_v -> {
                 Toast.makeText(this, "here", Toast.LENGTH_SHORT).show()
+                fragment = GTAVFragment()
             }
             R.id.gta_iv_ballad -> {
-
+                fragment = GTAIVBalladFragment()
             }
             R.id.gta_iv_damned -> {
-
+                fragment = GTAIVDamnedFragment()
             }
             R.id.gta_iv -> {
-
+                fragment = GTAIVFragment()
             }
             R.id.gta_san_andreas -> {
-
+                fragment = GTASAFragment()
             }
             R.id.gta_vice_city -> {
-
+                fragment = GTAVCFragment()
             }
             R.id.gta_iii -> {
-
+                fragment = GTAIIIFragment()
             }
             R.id.gta_2 -> {
-
+                fragment = GTAIIFragment()
             }
             R.id.gta -> {
-
+                fragment = GTAFragment()
             }
         }
 
+        replaceFragment()
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun replaceFragment(){
+        fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment, fragment)
+        fragmentTransaction.commit()
     }
 }
