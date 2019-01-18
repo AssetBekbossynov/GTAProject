@@ -26,7 +26,7 @@
             android:value="eee373e21cba90ecc2361b5e13a255d849b5b3ec" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="@string/AdMob_ID"/>
     </application>
 
 </manifest>

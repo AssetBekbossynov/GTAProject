@@ -31,12 +31,14 @@ android {
     buildTypes {
         debug {
             buildConfigField "String", "AdMob_ID", '"ca-app-pub-3940256099942544~3347511713"'
+            resValue "string", "AdMob_ID", '"ca-app-pub-3940256099942544~3347511713"'
             buildConfigField "String", "Intersitial_ID", '"ca-app-pub-3940256099942544/1033173712"'
             resValue "string", "Banner_ID", '"ca-app-pub-3940256099942544/6300978111"'
         }
         release {
             minifyEnabled false
             buildConfigField "String", "AdMob_ID", '"ca-app-pub-3482533201132664~8433254527"'
+            resValue "string", "AdMob_ID", '"ca-app-pub-3482533201132664~8433254527"'
             buildConfigField "String", "Intersitial_ID", '"ca-app-pub-3482533201132664/2306829875"'
             resValue "string", "Banner_ID", '"ca-app-pub-3482533201132664/5770544118"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
