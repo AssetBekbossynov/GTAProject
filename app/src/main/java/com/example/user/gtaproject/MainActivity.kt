@@ -1,31 +1,18 @@
 package com.example.user.gtaproject
 
-import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.preference.PreferenceManager
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -53,6 +40,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     lateinit var pref: SharedPreferences
 
+    lateinit var dialog: Dialog
+
+    val countDownTimer = object: CountDownTimer(30 * 1000, 1000) {
+        override fun onFinish() {
+            dialog.show()
+        }
+
+        override fun onTick(p0: Long) {
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,11 +63,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         if (!pref.getBoolean("dontShowAgain", false)){
             if (pref.getInt("launchCount", 0) > 3){
-
-                val dialog = Dialog(this)
+                countDownTimer.start()
+                dialog = Dialog(this)
                 val view = layoutInflater.inflate(R.layout.rate_dialog, null)
                 dialog.setContentView(view)
-                dialog.show()
+                dialog.setCanceledOnTouchOutside(false)
 
                 view.later.setOnClickListener {
                     pref.edit().putInt("launchCount", 0).apply()
@@ -129,32 +127,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.title = getString(R.string.gtav_title)
 
         nav_view.setNavigationItemSelectedListener(this)
-    }
-
-    override fun onCreateDialog(id: Int): Dialog {
-        val dialog = AlertDialog.Builder(this, R.style.StackedAlertDialogStyle)
-
-        dialog.setTitle("Оценить приложение")
-
-        dialog.setMessage("Если вам понравилось это приложение пожалуйста оцените его. Это не займет много времени")
-                .setPositiveButton("Оценить", DialogInterface.OnClickListener { dialogInterface, i ->
-                    try {
-                        startActivity(Intent(Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=" + application.packageName)))
-                    } catch (e: android.content.ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW,
-                                Uri.parse("http://play.google.com/store/apps/details?id=" + application.packageName)))
-                    }
-                    pref.edit().putBoolean("dontShowAgain", true).apply()
-                })
-                .setNegativeButton("Не оценивать", DialogInterface.OnClickListener { dialogInterface, i ->
-                    pref.edit().putBoolean("dontShowAgain", true).apply()
-                })
-                .setNeutralButton("Позже", DialogInterface.OnClickListener { dialogInterface, i ->
-                    pref.edit().putInt("launchCount", 0).apply()
-                })
-
-        return dialog.create()
     }
 
     override fun onBackPressed() {
