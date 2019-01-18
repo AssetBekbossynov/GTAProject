@@ -1,29 +1,26 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.os.Bundle
-import android.util.Log
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import kotlinx.android.synthetic.main.expand_item.view.*
 import kotlinx.android.synthetic.main.fragment_content.*
 
-
-class PCFragment : android.support.v4.app.Fragment() {
+class GTAIVDamnedFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_content, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_content, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title.text = getString(R.string.gtav_pc_title)
+        title.text = getString(R.string.gtaiv_lost_title)
 
         div1.div_title.text = "Оружие"
-        div1.cheats.text = getString(R.string.gtav_pc_weapons)
+        div1.cheats.text = getString(R.string.gtaiv_lost_weapons)
 
         div1.setOnClickListener {
             div1.div_content.toggle()
@@ -35,7 +32,7 @@ class PCFragment : android.support.v4.app.Fragment() {
         }
 
         div2.div_title.text = "Геймплей"
-        div2.cheats.text = getString(R.string.gtav_pc_gameplay)
+        div2.cheats.text = getString(R.string.gtaiv_lost_gameplay)
 
         div2.setOnClickListener {
             div2.div_content.toggle()
@@ -47,7 +44,7 @@ class PCFragment : android.support.v4.app.Fragment() {
         }
 
         div3.div_title.text = "Транспорт"
-        div3.cheats.text = getString(R.string.gtav_pc_vehicle)
+        div3.cheats.text = getString(R.string.gtaiv_lost_vehicle)
 
         div3.setOnClickListener {
             div3.div_content.toggle()
@@ -58,19 +55,8 @@ class PCFragment : android.support.v4.app.Fragment() {
             }
         }
 
-        warning.text = getString(R.string.gtav_warning)
-        instructions.text = getString(R.string.gtav_instructions)
-
         div4.visibility = View.GONE
+
+        instructions.text = getString(R.string.gtaiv_all_instruction)
     }
-
-    companion object {
-
-        internal var pcFragment = PCFragment()
-
-        fun newInstance(): PCFragment {
-            return pcFragment
-        }
-    }
-
 }

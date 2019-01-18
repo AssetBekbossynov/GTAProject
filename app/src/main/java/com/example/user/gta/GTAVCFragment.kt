@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.expand_item.view.*
 import kotlinx.android.synthetic.main.fragment_content.*
 
-class GTAIIIFragment: Fragment(){
+class GTAVCFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_content, container, false)
@@ -17,10 +17,10 @@ class GTAIIIFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title.text = getString(R.string.gtaiii_title)
+        title.text = getString(R.string.gtavc_title)
 
         div1.div_title.text = "Оружие"
-        div1.cheats.text = getString(R.string.gtaiii_weapons)
+        div1.cheats.text = getString(R.string.gtavc_weapons)
 
         div1.setOnClickListener {
             div1.div_content.toggle()
@@ -32,7 +32,7 @@ class GTAIIIFragment: Fragment(){
         }
 
         div2.div_title.text = "Геймплей"
-        div2.cheats.text = getString(R.string.gtaiii_gameplay)
+        div2.cheats.text = getString(R.string.gtavc_gameplay)
 
         div2.setOnClickListener {
             div2.div_content.toggle()
@@ -44,7 +44,7 @@ class GTAIIIFragment: Fragment(){
         }
 
         div3.div_title.text = "Транспорт"
-        div3.cheats.text = getString(R.string.gtaiii_vehicle)
+        div3.cheats.text = getString(R.string.gtavc_vehicle)
 
         div3.setOnClickListener {
             div3.div_content.toggle()
@@ -56,7 +56,7 @@ class GTAIIIFragment: Fragment(){
         }
 
         div4.div_title.text = "Уникальные чит-коды"
-        div4.cheats.text = getString(R.string.gtaiii_unique)
+        div4.cheats.text = getString(R.string.gtavc_unique)
 
         div4.setOnClickListener {
             div4.div_content.toggle()
@@ -67,6 +67,6 @@ class GTAIIIFragment: Fragment(){
             }
         }
 
-        instructions.text = getString(R.string.gtaiii_instruction)
+        instructions.text = getString(R.string.gtavc_instruction)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

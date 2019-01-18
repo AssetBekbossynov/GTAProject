@@ -15,7 +15,7 @@ android {
         config {
             keyAlias 'key'
             keyPassword 'qwerty'
-            storeFile file('/home/asset/keyStore.jks')
+            storeFile file('/home/asset/keystore2.jks')
             storePassword 'qwerty'
         }
     }

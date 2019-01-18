@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.app.Dialog
 import android.content.Intent
@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         override fun onTick(p0: Long) {
+//            Toast.makeText(this@MainActivity, "here $p0", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -62,17 +63,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         pref.edit().putInt("launchCount", pref.getInt("launchCount", 0) + 1).apply()
 
         if (!pref.getBoolean("dontShowAgain", false)){
-            if (pref.getInt("launchCount", 0) > 3){
                 countDownTimer.start()
                 dialog = Dialog(this)
                 val view = layoutInflater.inflate(R.layout.rate_dialog, null)
                 dialog.setContentView(view)
                 dialog.setCanceledOnTouchOutside(false)
-
-                view.later.setOnClickListener {
-                    pref.edit().putInt("launchCount", 0).apply()
-                    dialog.dismiss()
-                }
 
                 view.rate.setOnClickListener {
                     try {
@@ -90,7 +85,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     pref.edit().putBoolean("dontShowAgain", true).apply()
                     dialog.dismiss()
                 }
-            }
         }
 
         MobileAds.initialize(this, BuildConfig.AdMob_ID)

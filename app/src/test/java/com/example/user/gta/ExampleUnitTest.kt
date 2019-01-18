@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import org.junit.Test
 

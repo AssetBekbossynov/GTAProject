@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.expand_item.view.*
 import kotlinx.android.synthetic.main.fragment_content.*
 
-class GTAIVDamnedFragment: Fragment() {
+class GTAFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_content, container, false)
@@ -17,10 +17,10 @@ class GTAIVDamnedFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title.text = getString(R.string.gtaiv_lost_title)
+        title.text = getString(R.string.gta_title)
 
-        div1.div_title.text = "Оружие"
-        div1.cheats.text = getString(R.string.gtaiv_lost_weapons)
+        div1.div_title.text = "Обычные чит-коды"
+        div1.cheats.text = getString(R.string.gta_simple)
 
         div1.setOnClickListener {
             div1.div_content.toggle()
@@ -31,8 +31,8 @@ class GTAIVDamnedFragment: Fragment() {
             }
         }
 
-        div2.div_title.text = "Геймплей"
-        div2.cheats.text = getString(R.string.gtaiv_lost_gameplay)
+        div2.div_title.text = "Дополнительные чит-коды"
+        div2.cheats.text = getString(R.string.gta_additional)
 
         div2.setOnClickListener {
             div2.div_content.toggle()
@@ -43,8 +43,8 @@ class GTAIVDamnedFragment: Fragment() {
             }
         }
 
-        div3.div_title.text = "Транспорт"
-        div3.cheats.text = getString(R.string.gtaiv_lost_vehicle)
+        div3.div_title.text = "Уникальные чит-коды"
+        div3.cheats.text = getString(R.string.gta_unique)
 
         div3.setOnClickListener {
             div3.div_content.toggle()
@@ -57,6 +57,6 @@ class GTAIVDamnedFragment: Fragment() {
 
         div4.visibility = View.GONE
 
-        instructions.text = getString(R.string.gtaiv_all_instruction)
+        instructions.text = getString(R.string.gta_instruction)
     }
 }

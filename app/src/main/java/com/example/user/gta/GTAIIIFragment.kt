@@ -1,4 +1,4 @@
-package com.example.user.gtaproject
+package com.example.user.gta
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.expand_item.view.*
 import kotlinx.android.synthetic.main.fragment_content.*
 
-class GTAFragment: Fragment() {
+class GTAIIIFragment: Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_content, container, false)
@@ -17,10 +17,10 @@ class GTAFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title.text = getString(R.string.gta_title)
+        title.text = getString(R.string.gtaiii_title)
 
-        div1.div_title.text = "Обычные чит-коды"
-        div1.cheats.text = getString(R.string.gta_simple)
+        div1.div_title.text = "Оружие"
+        div1.cheats.text = getString(R.string.gtaiii_weapons)
 
         div1.setOnClickListener {
             div1.div_content.toggle()
@@ -31,8 +31,8 @@ class GTAFragment: Fragment() {
             }
         }
 
-        div2.div_title.text = "Дополнительные чит-коды"
-        div2.cheats.text = getString(R.string.gta_additional)
+        div2.div_title.text = "Геймплей"
+        div2.cheats.text = getString(R.string.gtaiii_gameplay)
 
         div2.setOnClickListener {
             div2.div_content.toggle()
@@ -43,8 +43,8 @@ class GTAFragment: Fragment() {
             }
         }
 
-        div3.div_title.text = "Уникальные чит-коды"
-        div3.cheats.text = getString(R.string.gta_unique)
+        div3.div_title.text = "Транспорт"
+        div3.cheats.text = getString(R.string.gtaiii_vehicle)
 
         div3.setOnClickListener {
             div3.div_content.toggle()
@@ -55,8 +55,18 @@ class GTAFragment: Fragment() {
             }
         }
 
-        div4.visibility = View.GONE
+        div4.div_title.text = "Уникальные чит-коды"
+        div4.cheats.text = getString(R.string.gtaiii_unique)
 
-        instructions.text = getString(R.string.gta_instruction)
+        div4.setOnClickListener {
+            div4.div_content.toggle()
+            if (div4.div_content.isExpanded){
+                div4.div_title.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.up, 0)
+            }else{
+                div4.div_title.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.down, 0)
+            }
+        }
+
+        instructions.text = getString(R.string.gtaiii_instruction)
     }
 }
