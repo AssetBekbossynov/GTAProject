@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_height="1dp"
+        android:layout_width="0dp"
+        android:background="#C5C5C5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/div_title"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:drawableEnd="@drawable/down"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view1"/>
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/div_content"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:el_expanded="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div_title">
+
+        <TextView
+            android:id="@+id/cheats"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:text="@string/gtav_pc_weapons"/>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+</android.support.constraint.ConstraintLayout>

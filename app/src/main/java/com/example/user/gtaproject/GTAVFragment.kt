@@ -17,9 +17,16 @@ class GTAVFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.gtav_fragment, container, false)
 
-        val pagerAdapter = ContentAdapter(activity!!.supportFragmentManager)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val pagerAdapter = ContentAdapter(childFragmentManager)
         view.view_pager.adapter = pagerAdapter
         view.tabs.setupWithViewPager(view.view_pager)
+
+        view.view_pager.offscreenPageLimit = 2
 
         view.tabs.getTabAt(0)!!.text = "PC"
         view.tabs.getTabAt(1)!!.text = "XBOX"
@@ -27,7 +34,6 @@ class GTAVFragment : Fragment() {
         view.tabs.getTabAt(0)!!.icon = resources.getDrawable(R.drawable.pc)
         view.tabs.getTabAt(1)!!.icon = resources.getDrawable(R.drawable.xbox)
         view.tabs.getTabAt(2)!!.icon = resources.getDrawable(R.drawable.playstation)
-
 
         view.tabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabReselected(p0: TabLayout.Tab?) {
@@ -69,7 +75,5 @@ class GTAVFragment : Fragment() {
             }
 
         })
-
-        return view
     }
 }

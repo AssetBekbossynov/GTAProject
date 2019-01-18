@@ -17,6 +17,6 @@ class ContentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm){
     }
 
     override fun getCount(): Int {
-        return NUM;
+        return NUM
     }
 }
